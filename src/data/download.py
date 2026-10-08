@@ -91,7 +91,7 @@ def download_daily(ticker):
     payload = fetch_json(
         url,
         params={
-            "adjusted": "false",
+            "adjusted": "true",
             "sort": "asc",
             "limit": 50000,
         },
@@ -276,13 +276,6 @@ def build_adjusted_data(ticker, records):
 
 if __name__ == "__main__":
     failures = []
-
-    # for ticker in TICKERS:
-    #     try:
-    #         download_daily(ticker)
-    #     except (requests.RequestException, RuntimeError, ValueError) as exc:
-    #         failures.append(ticker)
-    #         print(f"{ticker}: FAILED - {exc}")
 
     for ticker in TICKERS:
         try:
